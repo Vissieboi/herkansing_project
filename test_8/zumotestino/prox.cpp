@@ -10,7 +10,12 @@ frontProxSensor::frontProxSensor()
       Serial.println("Proximity sensors initialized");
 }
 
-
+// void frontProxSensor::proxSetup(){
+//       Serial.println("Proximity sensor setup");
+//       proxSensors.initFrontSensor();
+//       Serial.println("Proximity sensors initialized");
+//     //inplaats van dit, wordt wanneer die bruine streep ziet
+// }
 
 //Door deze methode draait de zumo naar rechts
 void frontProxSensor::turnRight(){

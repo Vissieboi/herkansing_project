@@ -7,6 +7,7 @@ class frontProxSensor : public Zumo32U4ProximitySensors{
 
     public:
     frontProxSensor();
+    void proxSetup();
     void proxStart();
     void stop();
 

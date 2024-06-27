@@ -5,7 +5,6 @@
 Zumo32U4LineSensors lineSensors;
 Zumo32U4ButtonA buttonA;
 Zumo32U4ButtonB buttonB;
-Zumo32U4ButtonC buttonC;
 Zumo32U4Motors motors;
 Zumo32U4Buzzer buzzer;
 frontProxSensor proxSensors;
@@ -126,12 +125,11 @@ void checkuitkomst()
     Serial.println();
 }
 
-bool status_ButtonB = false;
-bool status_ButtonC = false;
+bool loop_prox = false;
 
 void loop()
 {
-  while (status_ButtonB == false && status_ButtonC == false){
+  while (loop_prox == false){
       lineSensors.read(sensorWaarde);
       if (sensorWaarde[2] < 500){
         maxVermogen = 250;
@@ -143,22 +141,15 @@ void loop()
       sensor_translatie();
       checkuitkomst();
       if (buttonB.isPressed()){
-        status_ButtonB = true;
+      loop_prox = true;
       }
-      else if (status_ButtonB == true){
+      else if (loop_prox == true){
         break;
       }
-  }
-    
-  if(status_ButtonB == true){
-    proxSensors.proxStart();
-    if (buttonC.isPressed()){
-        status_ButtonC = true;
     }
-    while (status_ButtonC == true){
-      proxSensors.stop();
-    }   
-  }
-   
+    
+  if(loop_prox == true){
+    proxSensors.proxStart();
+  }    
 }
 
