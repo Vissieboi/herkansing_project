@@ -10,10 +10,6 @@ frontProxSensor::frontProxSensor()
       Serial.println("Proximity sensors initialized");
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 608fac80dffa6f981799ff54f2b3f59ebd2b6919
 //Door deze methode draait de zumo naar rechts
 void frontProxSensor::turnRight(){
     // Serial.println("hij gaat naar rechts");
